@@ -35,10 +35,9 @@
         </article>
 
         <aside>
-
-            <div id="time-since-last-win" class="text-lg mb-4"></div>
+            <div onclick="copyTimerText()" class='cursor-pointer mb-4 text-lg' id="time-since-last-win"
+                class="text-lg mb-4 text-left"></div>
             <div id="time-to-next-opportunity" class="text-lg"></div>
-
         </aside>
 
         <script>
@@ -58,7 +57,7 @@
                 const secondsSinceLastWin = Math.floor((diffToLastWin % (1000 * 60)) / 1000);
 
                 document.getElementById('time-since-last-win').innerHTML =
-                    `This means England has now experienced <b>${yearsSinceLastWin} years, ${monthsSinceLastWin} months, ${daysSinceLastWin} days, ${hoursSinceLastWin} hours, ${minutesSinceLastWin} minutes, and ${secondsSinceLastWin} seconds of hurt</b> (<a href="http://www.englandfootballonline.com/Seas1960-70/1969-70/M0448WGr1970.html" class='underline text-[#0000EE]' title="World Cup, 1970, Quarterfinals">World Cup, 1970, Quarterfinals</a>).`;
+                    `<b>${yearsSinceLastWin} years, ${monthsSinceLastWin} months, ${daysSinceLastWin} days, ${hoursSinceLastWin} hours, ${minutesSinceLastWin} minutes, and ${secondsSinceLastWin} seconds of hurt</b>.`;
 
                 // Calculate the time difference from now to the next opportunity
                 const diffToOpportunity = nextOpportunity - now;
@@ -73,13 +72,25 @@
                 }
             }
 
+            function copyTimerText() {
+                const range = document.createRange();
+                const timeToNextOpportunity = document.getElementById('time-since-last-win');
+                range.selectNode(timeToNextOpportunity);
+                window.getSelection().removeAllRanges(); // clear current selection
+                window.getSelection().addRange(range); // to select text
+                document.execCommand('copy');
+                window.getSelection().removeAllRanges(); // to deselect
+                alert('Timer text copied to clipboard!');
+            }
+
             setInterval(updateTimer, 1000);
             updateTimer();
         </script>
     </main>
 
-    <footer class='flex font-serif mx-10 self-end md:flex-row flex-col gap-4 items-end mb-4 mt-8'>
+    <footer class='flex font-serif mx-10 self-end md:flex-row flex-col gap-x-4 gap-y-2 items-end mb-4 mt-8'>
         <div>Maths by <a class="underline text-[#0000EE]" href="https://joevaughan.net">Joe Vaughan</a></div>
+        <a href="https://github.com/joevaugh4n/hasitcomehome" class="underline text-[#0000EE]">Link to repo</a>
         <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
         <script type='text/javascript'>
             kofiwidget2.init('Coffee for more maths', '#29abe0', 'B0B7ZLCIS');
