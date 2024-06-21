@@ -38,7 +38,8 @@
 
         <script>
             function updateTimer() {
-                const lastWin = new Date(Date.UTC(1966, 6, 30, 14, 0, 0));
+                // Use time at 16pm rather than 2pm, as 2pm was kick off and we cannot safely say it came home until an approximation of the final whistle
+                const lastWin = new Date(Date.UTC(1966, 6, 30, 16, 0, 0));
                 const nextOpportunity = new Date(Date.UTC(2024, 6, 14, 21, 0, 0));
                 const now = new Date();
 
