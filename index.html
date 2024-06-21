@@ -25,18 +25,21 @@
 </head>
 
 <body class="min-h-screen flex flex-col">
-    <main class="flex flex-col flex-1 items-center font-serif mx-10">
-        <header class="flex flex-col items-center mt-8 mb-8">
-            <h1 class="text-4xl font-bold mb-4 text-center">Has It Come Home?</h1>
-            <h2 class="text-xl italic">Never Stop Me Dreaming (Please)</h2>
+    <main class="flex flex-col flex-1 items-center font-serif px-12 my-8">
+        <header class="flex flex-col items-center">
+            <h1 class="text-4xl font-bold my-8 text-center">Has It Come Home?</h1>
         </header>
 
-        <article class="flex flex-col items-start shadow p-4 rounded w-full">
-            <div class="text-4xl py-8 px-16 rounded text-white font-semibold mb-4 bg-orange-600 self-center">Not Yet
-            </div>
+        <article class="text-4xl py-8 px-16 rounded text-white font-semibold mb-4 bg-orange-600 self-center shadow">Not
+            Yet
+        </article>
+
+        <aside>
+
             <div id="time-since-last-win" class="text-lg mb-4"></div>
             <div id="time-to-next-opportunity" class="text-lg"></div>
-        </article>
+
+        </aside>
 
         <script>
             function updateTimer() {
@@ -55,7 +58,7 @@
                 const secondsSinceLastWin = Math.floor((diffToLastWin % (1000 * 60)) / 1000);
 
                 document.getElementById('time-since-last-win').innerHTML =
-                    `This means we have now experienced <b>${yearsSinceLastWin} years, ${monthsSinceLastWin} months, ${daysSinceLastWin} days, ${hoursSinceLastWin} hours, ${minutesSinceLastWin} minutes, and ${secondsSinceLastWin} seconds of hurt</b> (<a href="https://en.wikipedia.org/wiki/1966_FIFA_World_Cup_final" class='underline text-[#0000EE]' title="World Cup Final, 1966">World Cup Final, 1966</a>).`;
+                    `This means England has now experienced <b>${yearsSinceLastWin} years, ${monthsSinceLastWin} months, ${daysSinceLastWin} days, ${hoursSinceLastWin} hours, ${minutesSinceLastWin} minutes, and ${secondsSinceLastWin} seconds of hurt</b> (<a href="http://www.englandfootballonline.com/Seas1960-70/1969-70/M0448WGr1970.html" class='underline text-[#0000EE]' title="World Cup, 1970, Quarterfinals">World Cup, 1970, Quarterfinals</a>).`;
 
                 // Calculate the time difference from now to the next opportunity
                 const diffToOpportunity = nextOpportunity - now;
@@ -79,7 +82,7 @@
         <div>Maths by <a class="underline text-[#0000EE]" href="https://joevaughan.net">Joe Vaughan</a></div>
         <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
         <script type='text/javascript'>
-            kofiwidget2.init('coffee for more maths', '#29abe0', 'B0B7ZLCIS');
+            kofiwidget2.init('Coffee for more maths', '#29abe0', 'B0B7ZLCIS');
             kofiwidget2.draw();
         </script>
     </footer>
