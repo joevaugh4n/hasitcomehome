@@ -20,12 +20,15 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    <meta property="og:image" content="https://https://hasitcomehomeyet.netlify.app/home.jpeg" />
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 </head>
 
 <body class="min-h-screen flex flex-col">
     <main class="flex flex-col flex-1 items-center font-serif mx-10">
         <header class="flex flex-col items-center mt-8 mb-8">
-            <h1 class="text-4xl font-bold mb-2 text-center">Has It Come Home?</h1>
+            <h1 class="text-4xl font-bold mb-4 text-center">Has It Come Home?</h1>
             <h2 class="text-xl italic">Never Stop Me Dreaming (Please)</h2>
         </header>
 
@@ -38,7 +41,8 @@
 
         <script>
             function updateTimer() {
-                const lastWin = new Date(Date.UTC(1966, 6, 30, 14, 0, 0));
+                // Use time at 16pm rather than 2pm, as 2pm was kick off and we cannot safely say it came home until an approximation of the final whistle
+                const lastWin = new Date(Date.UTC(1966, 6, 30, 16, 0, 0));
                 const nextOpportunity = new Date(Date.UTC(2024, 6, 14, 21, 0, 0));
                 const now = new Date();
 
