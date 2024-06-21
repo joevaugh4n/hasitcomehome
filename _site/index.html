@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Has It Come Home Yet?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="/tailwind.css" rel="stylesheet">
+</head>
+
+<body>
+    <main class="flex flex-col items-center my-4 font-serif  mx-10">
+        <header class="flex flex-col items-center mb-8">
+            <h1 class="text-4xl font-bold mb-2 text-center">Has It Come Home?</h1>
+            <h2 class="text-xl italic">Never Stop Me Dreaming</h2>
+        </header>
+
+        <article class="flex flex-col items-start shadow p-4 rounded mb-8 w-full">
+            <div class="text-4xl font-semibold mb-4">NOT YET!</div>
+            <div id="time-since-last-win" class="text-2xl mb-4"></div>
+            <div id="time-to-next-opportunity" class="text-2xl"></div>
+        </article>
+
+        <script>
+            function updateTimer() {
+                const lastWin = new Date(Date.UTC(1966, 6, 30, 14, 0, 0));
+                const nextOpportunity = new Date(Date.UTC(2024, 6, 14, 21, 0, 0));
+                const now = new Date();
+
+                // Calculate the time difference from the last win to now
+                const diffToLastWin = now - lastWin;
+                const yearsSinceLastWin = Math.floor(diffToLastWin / (1000 * 60 * 60 * 24 * 365.25));
+                const monthsSinceLastWin = Math.floor((diffToLastWin % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
+                const daysSinceLastWin = Math.floor((diffToLastWin % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
+                const hoursSinceLastWin = Math.floor((diffToLastWin % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutesSinceLastWin = Math.floor((diffToLastWin % (1000 * 60 * 60)) / (1000 * 60));
+                const secondsSinceLastWin = Math.floor((diffToLastWin % (1000 * 60)) / 1000);
+
+                document.getElementById('time-since-last-win').innerHTML =
+                    `This means we have now experienced <b>${yearsSinceLastWin} years, ${monthsSinceLastWin} months, ${daysSinceLastWin} days, ${hoursSinceLastWin} hours, ${minutesSinceLastWin} minutes, and ${secondsSinceLastWin} seconds of hurt</b> (<a href="https://en.wikipedia.org/wiki/1966_FIFA_World_Cup_final" class='underline text-[#0000EE]' title="World Cup Final, 1966">World Cup Final, 1966</a>).`;
+
+                // Calculate the time difference from now to the next opportunity
+                const diffToOpportunity = nextOpportunity - now;
+                if (diffToOpportunity > 0) {
+                    const daysToOpportunity = Math.floor(diffToOpportunity / (1000 * 60 * 60 * 24));
+                    const hoursToOpportunity = Math.floor((diffToOpportunity % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutesToOpportunity = Math.floor((diffToOpportunity % (1000 * 60 * 60)) / (1000 * 60));
+                    const secondsToOpportunity = Math.floor((diffToOpportunity % (1000 * 60)) / 1000);
+
+                    document.getElementById('time-to-next-opportunity').innerHTML =
+                        `The next opportunity for it to come home is in <b>${daysToOpportunity} days</b>, <b>${hoursToOpportunity} hours</b>, <b>${minutesToOpportunity} minutes</b>, and <b>${secondsToOpportunity} seconds</b>.`;
+                }
+            }
+
+            setInterval(updateTimer, 1000);
+            updateTimer();
+        </script>
+
+        <footer class='fixed bottom-2 right-2 z-50 flex gap-4 items-end'>
+            <div>Maths by <a class="underline text-[#0000EE]" href="https://joevaughan.net">Joe Vaughan</a></div>
+            <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+            <script
+                type='text/javascript'>kofiwidget2.init('KoFi for hosting support', '#29abe0', 'B0B7ZLCIS'); kofiwidget2.draw();</script>
+        </footer>
+    </main>
+</body>
+
+</html>
